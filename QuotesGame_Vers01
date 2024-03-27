@@ -38,7 +38,15 @@ def choose_difficulty():
     print("2. Medium: Moderate time to answer, multiple-choice questions with 4 options. (3 lives)")
     print("3. Hard: Less time to answer, type the answer directly. (1 life)")
     print("4. Custom: Set your own timer, options, and lives.")
-    choice = int(input("\nEnter the number corresponding to your choice: "))
+    while True:
+        try:
+            choice = int(input("\nEnter the number corresponding to your choice: "))
+            if choice not in [1, 2, 3, 4]:
+                raise ValueError
+            break
+        except ValueError:
+            print("Invalid input! Please enter a valid option.")
+
     if choice == 1:
         return 20, 2, "Multiple Choice", 5
     elif choice == 2:
@@ -56,9 +64,7 @@ def choose_difficulty():
             return choose_difficulty()  # Restart difficulty selection
         custom_question_type = "Type Answer" if custom_num_options == 0 else "Multiple Choice"
         return custom_timer, custom_num_options, custom_question_type, custom_lives
-    else:
-        print("Invalid choice. Defaulting to Medium difficulty.")
-        return 15, 4, "Multiple Choice", 3
+
 
 
 # Function to ask a question
@@ -125,6 +131,34 @@ def ask_question(quote, timer, num_options, lives):
             print(f"Incorrect! The correct answer is: {correct_answer}")
             return False, lives - 1
 
+# Dictionary to store high scores
+high_scores = {
+    "Easy": {"name": None, "score": 0},
+    "Medium": {"name": None, "score": 0},
+    "Hard": {"name": None, "score": 0},
+    "Custom": {"name": None, "score": 0, "timer": None, "num_options": None, "lives": None}
+}
+
+# Function to display high scores
+def display_high_scores():
+    print("\nHigh Scores:")
+    for difficulty, data in high_scores.items():
+        print(f"{difficulty}: {data['score']}/{len(quotes)} by {data['name']}")
+
+# Function to update high scores
+def update_high_scores(score, name, difficulty, custom_timer=None, custom_num_options=None, custom_lives=None):
+    if difficulty == "Custom":
+        if score > high_scores[difficulty]["score"]:
+            high_scores[difficulty]["score"] = score
+            high_scores[difficulty]["name"] = name
+            high_scores[difficulty]["timer"] = custom_timer
+            high_scores[difficulty]["num_options"] = custom_num_options
+            high_scores[difficulty]["lives"] = custom_lives
+    else:
+        if score > high_scores[difficulty]["score"]:
+            high_scores[difficulty]["score"] = score
+            high_scores[difficulty]["name"] = name
+
 # Function to play the quiz
 def play_quiz():
     while True:
@@ -147,6 +181,8 @@ def play_quiz():
                 score += 1  # Increment score for correct answer
             print("\n" + "-"*50)
             print(f"Quiz complete! Your score: {score}/{len(quotes)}")
+            update_high_scores(score, name, difficulty)  # Update high scores
+            display_high_scores()  # Display high scores
             play_again = input("Do you want to play again? (yes/no): ")
             if play_again.lower() != "yes":
                 break
@@ -157,5 +193,7 @@ def play_quiz():
                 continue
         else:
             print("Invalid choice. Please enter a valid option.")
+
+play_quiz()
 
 play_quiz()
