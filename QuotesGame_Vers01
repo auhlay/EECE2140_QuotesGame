@@ -32,10 +32,11 @@ def show_credits():
     print("\nPress 'b' to go back to the main menu.")
 
 # Function to choose difficulty level
+# Function to choose difficulty level
 def choose_difficulty():
     print("\nChoose your difficulty level:")
     print("1. Easy: More time to answer, multiple-choice questions with 2 options. (5 lives)")
-    print("2. Medium: Moderate time to answer, multiple-choice questions with 2 options. (3 lives)")
+    print("2. Medium: Moderate time to answer, multiple-choice questions with 4 options. (3 lives)")
     print("3. Hard: Less time to answer, type the answer directly. (1 life)")
     print("4. Custom: Set your own timer, options, and lives.")
     choice = int(input("\nEnter the number corresponding to your choice: "))
@@ -49,11 +50,17 @@ def choose_difficulty():
         custom_timer = int(input("Enter the timer in seconds: "))
         custom_num_options = int(input("Enter the number of options (0 for type answer): "))
         custom_lives = int(input("Enter the number of lives: "))
+        
+        # Check if the chosen settings are extreme or nonsensical
+        if custom_timer < 1 or custom_num_options == 1 or custom_lives < 0 or custom_num_options > 4:
+            print("Hardy har har! You're either trying to lose, or testing for glitches! Let's choose sensible settings.")
+            return choose_difficulty()  # Restart difficulty selection
         custom_question_type = "Type Answer" if custom_num_options == 0 else "Multiple Choice"
         return custom_timer, custom_num_options, custom_question_type, custom_lives
     else:
         print("Invalid choice. Defaulting to Medium difficulty.")
         return 15, 4, "Multiple Choice", 3
+
 
 # Function to ask a question
 def ask_question(quote, timer, num_options, lives):
