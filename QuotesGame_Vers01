@@ -32,7 +32,6 @@ def show_credits():
     print("\nPress 'b' to go back to the main menu.")
 
 # Function to choose difficulty level
-# Function to choose difficulty level
 def choose_difficulty():
     print("\nChoose your difficulty level:")
     print("1. Easy: More time to answer, multiple-choice questions with 2 options. (5 lives)")
