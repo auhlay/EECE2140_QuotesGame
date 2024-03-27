@@ -131,34 +131,6 @@ def ask_question(quote, timer, num_options, lives):
             print(f"Incorrect! The correct answer is: {correct_answer}")
             return False, lives - 1
 
-# Dictionary to store high scores
-high_scores = {
-    "Easy": {"name": None, "score": 0},
-    "Medium": {"name": None, "score": 0},
-    "Hard": {"name": None, "score": 0},
-    "Custom": {"name": None, "score": 0, "timer": None, "num_options": None, "lives": None}
-}
-
-# Function to display high scores
-def display_high_scores():
-    print("\nHigh Scores:")
-    for difficulty, data in high_scores.items():
-        print(f"{difficulty}: {data['score']}/{len(quotes)} by {data['name']}")
-
-# Function to update high scores
-def update_high_scores(score, name, difficulty, custom_timer=None, custom_num_options=None, custom_lives=None):
-    if difficulty == "Custom":
-        if score > high_scores[difficulty]["score"]:
-            high_scores[difficulty]["score"] = score
-            high_scores[difficulty]["name"] = name
-            high_scores[difficulty]["timer"] = custom_timer
-            high_scores[difficulty]["num_options"] = custom_num_options
-            high_scores[difficulty]["lives"] = custom_lives
-    else:
-        if score > high_scores[difficulty]["score"]:
-            high_scores[difficulty]["score"] = score
-            high_scores[difficulty]["name"] = name
-
 # Function to play the quiz
 def play_quiz():
     while True:
@@ -181,8 +153,6 @@ def play_quiz():
                 score += 1  # Increment score for correct answer
             print("\n" + "-"*50)
             print(f"Quiz complete! Your score: {score}/{len(quotes)}")
-            update_high_scores(score, name, difficulty)  # Update high scores
-            display_high_scores()  # Display high scores
             play_again = input("Do you want to play again? (yes/no): ")
             if play_again.lower() != "yes":
                 break
@@ -193,7 +163,5 @@ def play_quiz():
                 continue
         else:
             print("Invalid choice. Please enter a valid option.")
-
-play_quiz()
 
 play_quiz()
