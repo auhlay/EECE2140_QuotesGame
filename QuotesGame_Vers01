@@ -1,3 +1,5 @@
+# Created by Alejandro Baraona for EECE2140's Final Project
+
 import random
 import time
 
@@ -29,7 +31,7 @@ def show_menu():
 def show_credits():
     print("\nGame created for EECE2140's Final Project by Alejandro Baraona for Dr. Nafa.")
     print("Northeastern University College of Engineering Spring 2024")
-    print("\nPress 'b' to go back to the main menu.")
+    print("\nPress 'enter' to go back to the main menu.")
 
 # Function to choose difficulty level
 def choose_difficulty():
@@ -54,18 +56,22 @@ def choose_difficulty():
     elif choice == 3:
         return 10, 0, "Type Answer", 1
     elif choice == 4:
-        custom_timer = int(input("Enter the timer in seconds: "))
-        custom_num_options = int(input("Enter the number of options (0 for type answer): "))
-        custom_lives = int(input("Enter the number of lives: "))
+        while True:
+            try:
+                custom_timer = int(input("Enter the timer in seconds: "))
+                custom_num_options = int(input("Enter the number of options (0 for type answer): "))
+                custom_lives = int(input("Enter the number of lives: "))
+                
+                # Check if the chosen settings are extreme or nonsensical
+                if custom_timer < 1 or custom_num_options == 1 or custom_lives < 0 or custom_num_options > 4:
+                    raise ValueError("Invalid settings!")
+                
+                break
+            except ValueError as e:
+                print(f"Invalid input! Please enter valid values.")
         
-        # Check if the chosen settings are extreme or nonsensical
-        if custom_timer < 1 or custom_num_options == 1 or custom_lives < 0 or custom_num_options > 4:
-            print("Hardy har har! You're either trying to lose, or testing for glitches! Let's choose sensible settings.")
-            return choose_difficulty()  # Restart difficulty selection
         custom_question_type = "Type Answer" if custom_num_options == 0 else "Multiple Choice"
         return custom_timer, custom_num_options, custom_question_type, custom_lives
-
-
 
 # Function to ask a question
 def ask_question(quote, timer, num_options, lives):
