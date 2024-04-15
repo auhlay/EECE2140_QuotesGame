@@ -1,29 +1,30 @@
+# Famous Quotes Quiz
+A Python application for a Famous Quotes Quiz game, created by Alejandro Baraona for the EECE2140's Final Project.
 
-Famous Quotes Quiz:
-The Famous Quotes Quiz is a Python-based interactive quiz game that tests players' knowledge of famous quotes and their authors. Players are presented with a series of quotes and must either select the correct author from multiple-choice options or type in the author's name, depending on the chosen difficulty level.
+## Installation
+Make sure you have Python 3 installed. If not, download the installer package from the official website and install it.
 
-Features:
-Multiple difficulty levels: Easy, Medium, and Hard
-Different question types: Multiple Choice and Type Answer
-Timer for each question
-Randomized selection of quotes
-Scoring system based on correct answers
-Lives system to track player progress
-Option to play again after completing the quiz
-Getting Started
-Clone the repository to your local machine.
-Navigate to the project directory.
-Run the game using Python.
-Follow the on-screen instructions to play the quiz.
+After installing Python, download the source code from the repository and run the Python script file (famous_quotes_quiz.py) using Python 3.
+```python
+python3 famous_quotes_quiz.py
+```
+## How to Play
+Upon running the script, follow the on-screen prompts:
 
-Gameplay:
-Enter your name.
-Choose a difficulty level.
-Answer each question within the allotted time.
-Input the corresponding number for multiple-choice questions.
-Type the author's name for type answer questions.
-View your score at the end of the quiz.
-Optionally, play the quiz again.
+1. Enter your name to start the game.
+2. Choose the difficulty level:
+ - Easy: More time to answer, multiple-choice questions with 2 options. (5 lives)
+ - Medium: Moderate time to answer, multiple-choice questions with 4 options. (3 lives)
+ - Hard: Less time to answer, type the answer directly. (1 life)
+ - Custom: Set your own timer, options, and lives.
+3. Answer the displayed quotes within the time limit and based on the chosen difficulty.
+## Screenshots
+Main Menu
+Gameplay
+Game Over Screen
 
-Contributing:
-Contributions are welcome! Fork the repository and submit a pull request to contribute.
+## Acknowledgements
+Special thanks to Dr. Nafa and the Northeastern University College of Engineering for the support during the creation of this project.
+
+## Additional Notes
+The code is properly commented for better understanding. Feel free to modify the code to customize the game according to your preferences.
