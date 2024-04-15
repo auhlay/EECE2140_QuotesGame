@@ -63,7 +63,7 @@ def choose_difficulty():
                 custom_lives = int(input("Enter the number of lives: "))
                 
                 # Check if the chosen settings are extreme or nonsensical
-                if custom_timer < 1 or custom_num_options == 1 or custom_lives < 0 or custom_num_options > 4:
+                if custom_timer < 1 or custom_num_options == 1 or custom_lives < 0 or custom_num_options > 7:
                     raise ValueError("Invalid settings!")
                 
                 break
