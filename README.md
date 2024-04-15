@@ -19,13 +19,15 @@ Upon running the script, follow the on-screen prompts:
  - Custom: Set your own timer, options, and lives.
 3. Answer the displayed quotes within the time limit and based on the chosen difficulty.
 ## Screenshots
-Main Menu
-<p>
-    <img src="Screenshots/menu.png" width="220" height="240" />
-</p>
+### Main Menu
+![menu](https://github.com/auhlay/EECE2140_QuotesGame/assets/160651875/3948c5d2-c624-4e12-89e5-1c6a82916a6d)
+### Gameplay
+![easy](https://github.com/auhlay/EECE2140_QuotesGame/assets/160651875/778b089e-4edb-40e3-87b2-db069c2d4f2e)  
+![medium](https://github.com/auhlay/EECE2140_QuotesGame/assets/160651875/8fd2bc02-884b-4fc6-898b-b026eaffc34e) 
+![hard](https://github.com/auhlay/EECE2140_QuotesGame/assets/160651875/a2c83320-87d2-43fb-b8a8-2c72ec35d206) 
+### Game Over Screen
+![gameover](https://github.com/auhlay/EECE2140_QuotesGame/assets/160651875/cddb1b52-1469-4a07-a9d8-9bb813379114)
 
-Gameplay
-Game Over Screen
 
 ## Acknowledgements
 Special thanks to Dr. Nafa and the Northeastern University College of Engineering for the support during the creation of this project.
