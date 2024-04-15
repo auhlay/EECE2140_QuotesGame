@@ -20,6 +20,8 @@ Upon running the script, follow the on-screen prompts:
 3. Answer the displayed quotes within the time limit and based on the chosen difficulty.
 ## Screenshots
 Main Menu
+![ScreenShot](/screenshots/menu.png)
+
 Gameplay
 Game Over Screen
 
