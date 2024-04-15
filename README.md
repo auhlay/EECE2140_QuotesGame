@@ -20,7 +20,9 @@ Upon running the script, follow the on-screen prompts:
 3. Answer the displayed quotes within the time limit and based on the chosen difficulty.
 ## Screenshots
 Main Menu
-![ScreenShot](/screenshots/menu.png)
+<p>
+    <img src="Screenshots/menu.png" width="220" height="240" />
+</p>
 
 Gameplay
 Game Over Screen
